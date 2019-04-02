@@ -8,6 +8,7 @@ use Mike42\Escpos\Printer;
 use Mike42\Escpos\CapabilityProfile;
 use Mike42\Escpos\EscposImage;
 use Mike42\Escpos\PrintConnectors\CupsPrintConnector;
+use Mike42\Escpos\PrintConnectors\WindowsPrintConnector;
 
 class ReceiptPrinter
 {
@@ -37,6 +38,9 @@ class ReceiptPrinter
         switch (strtolower($connector_type)) {
             case 'cups':
                 $connector = new CupsPrintConnector($connector_descriptor);
+                break;
+            case 'windows':
+                $connector = new WindowsPrintConnector($connector_descriptor);
                 break;
         }
 
