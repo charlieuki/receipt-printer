@@ -143,9 +143,15 @@ class ReceiptPrinter
         if ($this->logo) {
             $image = EscposImage::load($this->logo, false);
 
-            $this->printer->feed();
-            $this->printer->graphics($image);
-            $this->printer->feed();
+            //$this->printer->feed();
+            //$this->printer->bitImage($image);
+            //$this->printer->feed();
+        }
+    }
+
+    public function printQRcode() {
+        if (!empty($this->qr_code)) {
+            $this->printer->qrCode($this->getPrintableQRcode(), Printer::QR_ECLEVEL_L, 8);
         }
     }
 
@@ -168,7 +174,7 @@ class ReceiptPrinter
             // Print receipt headers
             $this->printer->setJustification(Printer::JUSTIFY_CENTER);
             // Print logo
-            //$this->printLogo();
+            $this->printLogo();
             $this->printer->selectPrintMode(Printer::MODE_DOUBLE_WIDTH);
             $this->printer->feed(2);
             $this->printer->text("{$this->store->getName()}\n");
@@ -203,9 +209,7 @@ class ReceiptPrinter
             $this->printer->feed();
             $this->printer->selectPrintMode();
             // Print qr code
-            if (!empty($this->qr_code)) {
-                $this->printer->qrCode($this->getPrintableQRcode(), Printer::QR_ECLEVEL_L, 8);
-            }
+            $this->printQRcode();
             // Print receipt footer
             $this->printer->feed();
             $this->printer->setJustification(Printer::JUSTIFY_CENTER);
@@ -233,17 +237,14 @@ class ReceiptPrinter
             $footer = "This is not a proof of payment.\n";
             // Init printer settings
             $this->printer->initialize();
-            //$this->printer->selectPrintMode();
-            // Set margins
-            //$this->printer->setPrintLeftMargin(1);
             $this->printer->feed();
-            // Print receipt headers
             $this->printer->setJustification(Printer::JUSTIFY_CENTER);
             // Print logo
-            //$this->printLogo();
-            $this->printer->selectPrintMode(Printer::MODE_DOUBLE_WIDTH);
-            $this->printer->text("U L T I P A Y\n");
-            $this->printer->feed();
+            $this->printLogo();
+            // Print receipt headers
+            //$this->printer->selectPrintMode(Printer::MODE_DOUBLE_WIDTH);
+            //$this->printer->text("U L T I P A Y\n");
+            //$this->printer->feed();
             $this->printer->selectPrintMode();
             $this->printer->text("{$this->store->getName()}\n");
             $this->printer->text("{$this->store->getAddress()}\n");
@@ -260,9 +261,7 @@ class ReceiptPrinter
             $this->printer->text("Please scan the code below\nto make payment\n");
             $this->printer->feed();
             // Print qr code
-            if (!empty($this->qr_code)) {
-                $this->printer->qrCode($this->getPrintableQRcode(), Printer::QR_ECLEVEL_L, 8);
-            }
+            $this->printQRcode();
             $this->printer->feed();
             // Print grand total
             $this->printer->selectPrintMode(Printer::MODE_DOUBLE_WIDTH);
@@ -277,7 +276,6 @@ class ReceiptPrinter
             // Print receipt date
             $this->printer->text(date('j F Y H:i:s'));
             $this->printer->feed(2);
-            //$this->printLogo();
             // Cut the receipt
             $this->printer->cut();
             $this->printer->close();
