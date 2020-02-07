@@ -16,8 +16,17 @@ return [
     | Printer connector descriptor
     |--------------------------------------------------------------------------
     |
-    | Typically printer name.
+    | Typically printer name or IP address.
     |
     */
     'connector_descriptor' => '',
+    /*
+    |--------------------------------------------------------------------------
+    | Printer port
+    |--------------------------------------------------------------------------
+    |
+    | Typically 9100.
+    |
+    */
+    'connector_port' => 9100,
 ];

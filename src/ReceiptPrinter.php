@@ -9,6 +9,7 @@ use Mike42\Escpos\CapabilityProfile;
 use Mike42\Escpos\EscposImage;
 use Mike42\Escpos\PrintConnectors\CupsPrintConnector;
 use Mike42\Escpos\PrintConnectors\WindowsPrintConnector;
+use Mike42\Escpos\PrintConnectors\NetworkPrintConnector;
 
 class ReceiptPrinter
 {
@@ -34,13 +35,16 @@ class ReceiptPrinter
         $this->printer->close();
     }
 
-    public function init($connector_type, $connector_descriptor) {
+    public function init($connector_type, $connector_descriptor, $connector_port = 9100) {
         switch (strtolower($connector_type)) {
             case 'cups':
                 $connector = new CupsPrintConnector($connector_descriptor);
                 break;
             case 'windows':
                 $connector = new WindowsPrintConnector($connector_descriptor);
+                break;
+            case 'network':
+                $connector = new NetworkPrintConnector($connector_descriptor);
                 break;
         }
 
