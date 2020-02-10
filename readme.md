@@ -41,6 +41,8 @@ printRequest()
 ## Example (Print Receipt)
 
 ```
+use charlieuki\ReceiptPrinter\ReceiptPrinter as ReceiptPrinter;
+...
 // Set params
 $mid = '123123456';
 $store_name = 'YOURMART';
@@ -115,6 +117,8 @@ $printer->printReceipt();
 ## Example (Print Request)
 
 ```
+use charlieuki\ReceiptPrinter\ReceiptPrinter as ReceiptPrinter;
+...
 // Set params
 $mid = '123123456';
 $store_name = 'YOURMART';
