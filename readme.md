@@ -28,7 +28,13 @@ Edit the config file at `config/receiptprinter.php` as follows:
     - the IP address or Samba URI, e.g: `smb://192.168.0.5/PrinterName` if your `connector_type` is `network`
 3. Set `connector_port` to the open port for the printer, only if your `connector_type` is `network`
 
-Use any one of these two functions to send "print" command to the printer.
+Include the library:
+
+```
+use charlieuki\ReceiptPrinter\ReceiptPrinter as ReceiptPrinter;
+```
+
+Then use any one of these two functions to send "print" command to the printer.
 
 ```
 printReceipt()
@@ -42,7 +48,9 @@ printRequest()
 
 ```
 use charlieuki\ReceiptPrinter\ReceiptPrinter as ReceiptPrinter;
+
 ...
+
 // Set params
 $mid = '123123456';
 $store_name = 'YOURMART';
@@ -118,7 +126,9 @@ $printer->printReceipt();
 
 ```
 use charlieuki\ReceiptPrinter\ReceiptPrinter as ReceiptPrinter;
+
 ...
+
 // Set params
 $mid = '123123456';
 $store_name = 'YOURMART';
