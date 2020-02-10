@@ -165,7 +165,7 @@ If you discover any security related issues, please email charlie@usahakreatif.c
 
 ## Credits
 
-- *Mike42* for the awesome [PHP ESC/POS Print Driver][https://github.com/mike42/escpos-php]
+- *Mike42* for the awesome [PHP ESC/POS Print Driver](https://github.com/mike42/escpos-php "PHP ESC/POS Print Driver") library
 
 ## License
 
