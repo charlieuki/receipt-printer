@@ -17,6 +17,19 @@ $ composer require charlieuki/receiptprinter
 
 ## Usage
 
+Edit the config file at `config/receiptprinter.php` as follows:
+
+1. Set `connector_type` to:
+    - `windows` if you are using Windows as your web server.
+    - `cups` if you are using Linux or Mac as your web server.
+    - `network` if you are using a network printer.
+2. Set `connector_descriptor` to:
+    - the printer name if your `connector_type` is either `windows` or `cups`
+    - the IP address or Samba URI, e.g: `smb://192.168.0.5/PrinterName` if your `connector_type` is `network`
+3. Set `connector_port` to the open port for the printer, only if your `connector_type` is `network`
+
+Use any one of these two functions to send "print" command to the printer.
+
 ```
 printReceipt()
 ```

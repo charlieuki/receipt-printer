@@ -7,7 +7,7 @@ return [
     |--------------------------------------------------------------------------
     |
     | Connection protocol to communicate with the receipt printer.
-    | Valid values are: cups, network, windows, serial
+    | Valid values are: cups, network, windows
     |
     */
     'connector_type' => 'windows',
