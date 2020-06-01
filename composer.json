@@ -12,13 +12,13 @@
     "homepage": "https://github.com/charlieuki/receiptprinter",
     "keywords": ["Laravel", "ReceiptPrinter"],
     "require": {
-        "illuminate/support": "~5",
+        "illuminate/support": "~7",
         "mike42/escpos-php": "^2.1"
     },
     "require-dev": {
-        "phpunit/phpunit": "~7.0",
+        "phpunit/phpunit": "~8.5",
         "mockery/mockery": "^1.1",
-        "orchestra/testbench": "~3.0",
+        "orchestra/testbench": "~5.3",
         "sempro/phpunit-pretty-print": "^1.0"
     },
     "autoload": {
