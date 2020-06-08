@@ -171,7 +171,11 @@ $printer->setQRcode([
 $printer->printRequest();
 ```
 
-## Change log
+## Example App
+
+I have set up [a simple app](https://github.com/charlieuki/receipt-printer-example) based on Laravel 7 to serve as a demo.
+
+## Changelog
 
 Please see the [changelog](changelog.md) for more information on what has changed recently.
 
