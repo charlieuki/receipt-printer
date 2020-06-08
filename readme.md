@@ -17,7 +17,13 @@ $ composer require charlieuki/receiptprinter
 
 ## Usage
 
-Edit the config file at `config/receiptprinter.php` as follows:
+Execute the following command to publish the config used by this package:
+
+```
+$ php artisan vendor:publish --tag=receiptprinter.config
+```
+
+Edit the config file located at `config/receiptprinter.php` as follows:
 
 1. Set `connector_type` to:
     - `windows` if you are using Windows as your web server.
