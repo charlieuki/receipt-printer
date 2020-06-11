@@ -15,6 +15,10 @@ Via Composer
 $ composer require charlieuki/receiptprinter
 ```
 
+## Sample App
+
+I have set up [a simple app](https://github.com/charlieuki/receipt-printer-example) based on Laravel 7 to serve as a demo.
+
 ## Usage
 
 Execute the following command to publish the config used by this package:
@@ -170,10 +174,6 @@ $printer->setQRcode([
 // Print payment request
 $printer->printRequest();
 ```
-
-## Example App
-
-I have set up [a simple app](https://github.com/charlieuki/receipt-printer-example) based on Laravel 7 to serve as a demo.
 
 ## Changelog
 
