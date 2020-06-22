@@ -183,9 +183,9 @@ Please see the [changelog](changelog.md) for more information on what has change
 
 Please see [contributing.md](contributing.md) for details and a todolist.
 
-## Security
+## Problems
 
-If you discover any security related issues, please email charlie@usahakreatif.co.id instead of using the issue tracker.
+If you discover any issues, please post the details on the [issue tracker](https://github.com/charlieuki/receipt-printer/issues).
 
 ## Credits
 
