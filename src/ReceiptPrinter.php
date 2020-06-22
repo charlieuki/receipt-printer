@@ -10,6 +10,7 @@ use Mike42\Escpos\EscposImage;
 use Mike42\Escpos\PrintConnectors\CupsPrintConnector;
 use Mike42\Escpos\PrintConnectors\WindowsPrintConnector;
 use Mike42\Escpos\PrintConnectors\NetworkPrintConnector;
+use Mike42\Escpos\PrintConnectors\FilePrintConnector;
 
 class ReceiptPrinter
 {
@@ -45,6 +46,9 @@ class ReceiptPrinter
                 break;
             case 'network':
                 $connector = new NetworkPrintConnector($connector_descriptor);
+                break;
+            default:
+                $connector = new FilePrintConnector("php://stdout");
                 break;
         }
 
