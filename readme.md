@@ -70,6 +70,7 @@ $store_email = 'yourmart@email.com';
 $store_website = 'yourmart.com';
 $tax_percentage = 10;
 $transaction_id = 'TX123ABC456';
+$currency = 'Rp';
 
 // Set items
 $items = [
@@ -104,6 +105,9 @@ $printer->init(
 
 // Set store info
 $printer->setStore($mid, $store_name, $store_address, $store_phone, $store_email, $store_website);
+
+// Set currency
+$printer->setCurrency($currency);
 
 // Add items
 foreach ($items as $item) {
@@ -148,6 +152,7 @@ $store_email = 'yourmart@email.com';
 $store_website = 'yourmart.com';
 $tax_percentage = 10;
 $transaction_id = 'TX123ABC456';
+$currency = 'Rp';
 
 // Init printer
 $printer = new ReceiptPrinter;
@@ -158,6 +163,9 @@ $printer->init(
 
 // Set store info
 $printer->setStore($mid, $store_name, $store_address, $store_phone, $store_email, $store_website);
+
+// Set currency
+$printer->setCurrency($currency);
 
 // Set request amount
 $printer->setRequestAmount($request_amount);
