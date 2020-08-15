@@ -70,9 +70,14 @@ class ReceiptPrinter
         $this->logo = $logo;
     }
 
+    public function setCurrency($currency) {
+        $this->currency = $currency;
+    }
+
     public function addItem($name, $qty, $price) {
         $item = new Item($name, $qty, $price);
-
+        $item->setCurrency($this->currency);
+        
         $this->items[] = $item;
     }
 
