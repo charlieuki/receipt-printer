@@ -12,7 +12,7 @@
     "homepage": "https://github.com/charlieuki/receiptprinter",
     "keywords": ["Laravel", "ReceiptPrinter"],
     "require": {
-        "illuminate/support": "~7",
+        "illuminate/support": ">=7",
         "mike42/escpos-php": "^2.1"
     },
     "require-dev": {
