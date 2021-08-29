@@ -4,6 +4,7 @@ namespace charlieuki\ReceiptPrinter;
 
 class Item
 {
+    private $paper_size;
     private $name;
     private $qty;
     private $price;
@@ -13,10 +14,15 @@ class Item
         $this->name = $name;
         $this->qty = $qty;
         $this->price = $price;
+        $this->paper_size = '57mm';
     }
 
     public function setCurrency($currency) {
         $this->currency = $currency;
+    }
+
+    public function setPaperSize($paper_size) {
+        $this->paper_size = $paper_size;
     }
 
     public function getQty() {
@@ -29,8 +35,16 @@ class Item
 
     public function __toString()
     {
-        $right_cols = 10;
-        $left_cols = 22;
+        switch ($this->paper_size) {
+            case '80mm':
+                $right_cols = 15;
+                $left_cols = 32;
+                break;
+            default:
+                $right_cols = 10;
+                $left_cols = 22;
+                break;
+        }
 
         $item_price = $this->currency . number_format($this->price, 0, ',', '.');
         $item_subtotal = $this->currency . number_format($this->price * $this->qty, 0, ',', '.');
