@@ -32,10 +32,6 @@ class ReceiptPrinter
         $this->items = [];
     }
 
-    public function close() {
-        $this->printer->close();
-    }
-
     public function init($connector_type, $connector_descriptor, $connector_port = 9100) {
         switch (strtolower($connector_type)) {
             case 'cups':
@@ -59,6 +55,12 @@ class ReceiptPrinter
             $this->printer = new Printer($connector, $profile);
         } else {
             throw new Exception('Invalid printer connector type. Accepted values are: cups');
+        }
+    }
+
+    public function close() {
+        if ($this->printer) {
+            $this->printer->close();
         }
     }
 
@@ -117,6 +119,14 @@ class ReceiptPrinter
 
     public function setQRcode($content) {
         $this->qr_code = $content;
+    }
+
+    public function setTextSize($width = 1, $height = 1) {
+        if ($this->printer) {
+            $width = ($width >= 1 && $width <= 8) ? (int) $width : 1;
+            $height = ($height >= 1 && $height <= 8) ? (int) $height : 1;
+            $this->printer->setTextSize($width, $height);
+        }
     }
 
     public function getPrintableQRcode() {
