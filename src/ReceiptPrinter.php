@@ -166,19 +166,43 @@ class ReceiptPrinter
         $this->printer->text($line);
     }
 
-    public function printLogo() {
+    public function printLogo($mode = 0) {
         if ($this->logo) {
-            $image = EscposImage::load($this->logo, false);
+            $this->printImage($this->logo, $mode);
+        }
+    }
 
-            //$this->printer->feed();
-            //$this->printer->bitImage($image);
-            //$this->printer->feed();
+    public function printImage($image_path, $mode = 0) {
+        if ($this->printer && $image_path) {
+            $image = EscposImage::load($image_path, false);
+
+            $this->printer->feed();
+
+            switch ($mode) {
+                case 0:
+                    $this->printer->graphics($image);
+                    break;
+                case 1:
+                    $this->printer->bitImage($image);
+                    break;
+                case 2:
+                    $this->printer->bitImageColumnFormat($image);
+                    break;
+            }
+
+            $this->printer->feed();
         }
     }
 
     public function printQRcode() {
         if (!empty($this->qr_code)) {
             $this->printer->qrCode($this->getPrintableQRcode(), Printer::QR_ECLEVEL_L, 8);
+        }
+    }
+
+    public function openDrawer($pin = 0, $on_duration = 120, $off_duration = 240) {
+        if ($this->printer) {
+            $this->printer->pulse($pin, $on_duration, $off_duration);
         }
     }
 
