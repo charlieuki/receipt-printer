@@ -71,6 +71,7 @@ $store_website = 'yourmart.com';
 $tax_percentage = 10;
 $transaction_id = 'TX123ABC456';
 $currency = 'Rp';
+$image_path = 'logo.png';
 
 // Set items
 $items = [
@@ -127,7 +128,11 @@ $printer->calculateGrandTotal();
 // Set transaction ID
 $printer->setTransactionID($transaction_id);
 
-// Set qr code
+// Set logo
+// Uncomment the line below if $image_path is defined
+//$printer->setLogo($image_path);
+
+// Set QR code
 $printer->setQRcode([
     'tid' => $transaction_id,
 ]);
@@ -153,6 +158,7 @@ $store_website = 'yourmart.com';
 $tax_percentage = 10;
 $transaction_id = 'TX123ABC456';
 $currency = 'Rp';
+$image_path = 'logo.png';
 
 // Init printer
 $printer = new ReceiptPrinter;
@@ -173,7 +179,11 @@ $printer->setRequestAmount($request_amount);
 // Set transaction ID
 $printer->setTransactionID($transaction_id);
 
-// Set qr code
+// Set logo
+// Uncomment the line below if $image_path is defined
+//$printer->setLogo($image_path);
+
+// Set QR code
 $printer->setQRcode([
     'tid' => $transaction_id,
     'amount' => $request_amount,

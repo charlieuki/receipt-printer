@@ -224,8 +224,10 @@ class ReceiptPrinter
             $this->printer->setPrintLeftMargin(1);
             // Print receipt headers
             $this->printer->setJustification(Printer::JUSTIFY_CENTER);
+            // Image print mode
+            $image_print_mode = 0; // 0 = auto; 1 = mode 1; 2 = mode 2
             // Print logo
-            $this->printLogo();
+            $this->printLogo($image_print_mode);
             $this->printer->selectPrintMode(Printer::MODE_DOUBLE_WIDTH);
             $this->printer->feed(2);
             $this->printer->text("{$this->store->getName()}\n");
@@ -290,12 +292,10 @@ class ReceiptPrinter
             $this->printer->initialize();
             $this->printer->feed();
             $this->printer->setJustification(Printer::JUSTIFY_CENTER);
+            // Image print mode
+            $image_print_mode = 0; // 0 = auto; 1 = mode 1; 2 = mode 2
             // Print logo
-            $this->printLogo();
-            // Print receipt headers
-            //$this->printer->selectPrintMode(Printer::MODE_DOUBLE_WIDTH);
-            //$this->printer->text("U L T I P A Y\n");
-            //$this->printer->feed();
+            $this->printLogo($image_print_mode);
             $this->printer->selectPrintMode();
             $this->printer->text("{$this->store->getName()}\n");
             $this->printer->text("{$this->store->getAddress()}\n");
